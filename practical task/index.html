@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather App</title>
+</head>
+<body>
+    <div class="card">
+        <div class="search">
+            <input type="text" placeholder="Enter your city name" required>
+            <button class="btn">
+                <img src="search.png" >
+            </button>
+        </div>
+        <p class="error">
+            Empty input
+        </p>
+        <div class="weather  hidden">
+            <img src="display.png" alt="loading..." class="weather-icon">
+            <p class="temp"></p>
+            <p class="descrp"></p>
+            <h1 class="city">Enter your city above</h1>
+            <div class="details">
+                    <div class="humidity">
+                        <img src="humidity.png" class="h">
+                        <p class="humid"></p>
+                        <h2>Humidity</h2>
+                    </div>
+                    <div class="wind">
+                        <img src="windy.png" class="w">
+                        <p class="speed"></p>
+                        <h2>Wind</h2>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        const apiKey="55e9283586ddc4a6090b546a8c4bb29c"
+        const apiURL="https://api.openweathermap.org/data/2.5/weather?q="
+        const searchinput=document.querySelector(".search input")
+        const btn=document.querySelector(".search button")
+        const weathericon=document.querySelector(".weather-icon")
+        const description=document.querySelector(".descrp")
+        // document.querySelector(">weather").classList.add(".hidden")
+        
+     
+
+         async function weather(city){
+            
+       
+                let response=await fetch(apiURL+city+`&appid=${apiKey}`)
+                var data =await response.json()
+                if(data.cod==='400'){
+                    document.querySelector(".error").style.display="block"
+                    document.querySelector(".weather").style.display="none"
+                    setTimeout(()=>{
+                        alert("Enter  city first")
+                    },1)
+                    
+
+                }
+                else if(data.cod==='404'){
+                    document.querySelector(".error").style.display="block"
+                    document.querySelector(".weather").style.display="none"
+                    document.querySelector(".error").innerText='Invalid city'
+                    setTimeout(()=>{
+                        alert("Enter valid city")
+                    },1)
+                    
+                }else{
+                    document.querySelector(".weather").style.display="flex"
+                    document.querySelector(".error").style.display="none"
+                    console.log(data)
+                    document.querySelector(".city").innerText=data.name
+                    document.querySelector(".temp").innerHTML=Math.round(data.main.temp)+`°c`
+                    document.querySelector(".speed").innerHTML=data.wind.speed+`km/hr`
+                    document.querySelector(".humid").innerHTML=data.main.humidity+`%`
+            
+                    //weather images
+                    if(data.weather[0].main==="Clouds"){
+                       weathericon.src="clouds.png"
+                       description.innerHTML="Cloudy"
+            
+                    }else if(data.weather[0].main==='Haze'){
+                        weathericon.src="haze.png"
+                        description.innerHTML="Mostly Haze"
+                    }else if(data.weather[0].main==='Clear'){
+                        weathericon.src="clear.png"
+                        description.innerHTML="Sunny"
+                    }else if(data.weather[0].main==='Smoke'){
+                        weathericon.src="smokey.png"
+                        description.innerHTML="Mostly Smokey"
+                    }else if(data.weather[0].main==='Rain'){
+                        weathericon.src="rain.png"
+                        description.innerHTML="Mostly Rainy"
+                    }
+            
+            
+                }
+                
+            }
+            
+     
+
+ 
+    btn.addEventListener("click",()=>{
+        weather(searchinput.value)
+        console.log(searchinput.value)
+        // document.querySelector(".weather").classList.remove(".hidden")
+    })
+     
+    </script>
+</body>
+</html>

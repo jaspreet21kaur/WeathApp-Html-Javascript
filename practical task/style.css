@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+body{
+    background-color: #222;
+}
+
+.card{
+    background:linear-gradient(#164361,#36bbcc);
+    color: rgb(5, 23, 58);
+    width: 55%;
+    padding: 2rem 0 2rem 0;
+    margin: auto;
+    border-radius: 55px;
+   margin-top: 5%;
+   height: 550px;
+}
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.search input{
+    width: 30%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+}
+
+.btn{
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn img{
+    padding: auto;
+    width: 25px;
+}
+
+
+.weather{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.weather img{
+    width: 25%;
+    margin-top: 15px;
+}
+
+.weather .details{
+    display: flex;
+    justify-content: space-between;
+    gap: 180px;
+    /* align-items: center; */
+    flex-direction: row;
+    margin-top: 30px;
+}
+.details .w{
+    width: 50px;
+    height: 55px;
+}
+
+
+.error{
+    margin-left: 40%;
+    margin-top: 5px;
+    font-size: 30px;
+    display: none;
+}

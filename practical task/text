@@ -1,0 +1,40 @@
+<!-- Assignment: Weather App
+Objective:
+Build a simple web application that fetches and displays weather information for a user-specified location using a public weather API.
+
+Requirements:
+
+HTML Structure:
+
+Create an HTML file with the necessary structure.
+Include input elements for the user to enter the city and country for which they want to check the weather.
+Add a button to initiate the weather data retrieval.
+JavaScript Fetch API:
+
+Write JavaScript code to handle the button click event.
+Use the Fetch API to make a request to a weather API (e.g., OpenWeatherMap API).
+Retrieve the weather data in JSON format.
+Asynchronous Programming:
+
+Utilize asynchronous programming concepts (async/await or promises) to handle the asynchronous nature of API requests.
+Display Weather Information:
+
+Extract relevant information from the retrieved weather data (e.g., temperature, weather description, etc.).
+Dynamically update the HTML to display the weather information on the page.
+Error Handling:
+
+Implement error handling for cases such as invalid input, network errors, or API request failures.
+Display meaningful error messages to the user.
+Styling:
+
+Apply CSS styling to enhance the visual appeal of the web page.
+
+Optional Enhancements:
+
+Include additional features such as displaying icons for different weather conditions.
+Allow users to toggle between Fahrenheit and Celsius for temperature display.
+Add a background image that changes based on the current weather.
+Submission Guidelines:
+
+Submit a ZIP file containing the HTML, CSS, and JavaScript files.
+Include comments in the JavaScript code to explain key functionalities. -->
